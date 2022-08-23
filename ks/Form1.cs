@@ -1,9 +1,9 @@
 using System.Globalization;
 using System.Runtime.InteropServices;
 using VisaComLib;
-using System.Threading;
+/*using System.Threading;
 using System.Threading.Tasks;
-using System.Diagnostics;
+using System.Diagnostics;*/
 
 namespace ks
 {
@@ -133,7 +133,7 @@ namespace ks
             }
             usbSendAndRead.Write(source_load_address, "OUTP OFF");
             label_status.Text = "stop";
-            stop_start_state = false;
+            //stop_start_state = false;
 
 
         }
