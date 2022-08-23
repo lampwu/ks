@@ -78,8 +78,8 @@ namespace ks
             }
         }
 
-        bool stop_start_state = false;
-        private async void button_start_Click(object sender, EventArgs e)
+        //bool stop_start_state = false;
+        private void button_start_Click(object sender, EventArgs e)
         {
             string source_load_address = textBox_address.Text;
             if (source_load_address == "")
@@ -91,9 +91,9 @@ namespace ks
             usbSendAndRead.Write(source_load_address, "VOLT 0");
             usbSendAndRead.Write(source_load_address, "OUTP ON");
             label_status.Text = "running";
-            stop_start_state = true;
-            string read_current, read_voltage;
-            await Task.Delay(1000);
+            //stop_start_state = true;
+            //string read_current, read_voltage;
+            /*await Task.Delay(1000);
 
             while (stop_start_state == true)
             {
@@ -119,7 +119,7 @@ namespace ks
                 //await Task.Delay(1000);
 
             }
-
+*/
 
         }
 

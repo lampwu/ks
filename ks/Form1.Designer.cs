@@ -41,9 +41,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox_setup_voltage_value = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label_meas_current = new System.Windows.Forms.Label();
-            this.label_meas_voltage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // vScrollBar1
@@ -161,41 +158,11 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Output voltage";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(197, 375);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(218, 20);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "measure current and voltage";
-            // 
-            // label_meas_current
-            // 
-            this.label_meas_current.AutoSize = true;
-            this.label_meas_current.Location = new System.Drawing.Point(163, 405);
-            this.label_meas_current.Name = "label_meas_current";
-            this.label_meas_current.Size = new System.Drawing.Size(18, 20);
-            this.label_meas_current.TabIndex = 16;
-            this.label_meas_current.Text = "0";
-            // 
-            // label_meas_voltage
-            // 
-            this.label_meas_voltage.AutoSize = true;
-            this.label_meas_voltage.Location = new System.Drawing.Point(341, 405);
-            this.label_meas_voltage.Name = "label_meas_voltage";
-            this.label_meas_voltage.Size = new System.Drawing.Size(18, 20);
-            this.label_meas_voltage.TabIndex = 17;
-            this.label_meas_voltage.Text = "0";
-            // 
             // soft_start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label_meas_voltage);
-            this.Controls.Add(this.label_meas_current);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox_setup_voltage_value);
             this.Controls.Add(this.label4);
@@ -230,8 +197,5 @@
         private Label label4;
         private TextBox textBox_setup_voltage_value;
         private Label label5;
-        private Label label6;
-        private Label label_meas_current;
-        private Label label_meas_voltage;
     }
 }
