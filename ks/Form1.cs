@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using VisaComLib;
 //using System.Threading;
 //using System.Threading.Tasks;
-using System.Diagnostics;
+//using System.Diagnostics;
 
 namespace ks
 {
@@ -160,7 +160,7 @@ namespace ks
         {
             string source_load_address = textBox_address.Text;
             string voltage_set = (((float)vScrollBar_voltage.Value) / 10).ToString("0.00");
-            Debug.Print(voltage_set);
+            //Debug.Print(voltage_set);
             usbSendAndRead.Write(source_load_address, "VOLT " + voltage_set);
             textBox_setup_voltage_value.Text = voltage_set;
         }
@@ -174,8 +174,6 @@ namespace ks
             string current_lim = (((float)vScrollBar1.Value) / 10).ToString("0.00");
             usbSendAndRead.Write(source_load_address, "CURR:LIM " + current_lim);
             textBox_setup_current_value.Text = current_lim;
-
-
         }
 
         private void textBox_setup_voltage_value_TextChanged(object sender, EventArgs e)
