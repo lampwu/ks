@@ -1,9 +1,9 @@
 using System.Globalization;
 using System.Runtime.InteropServices;
 using VisaComLib;
-/*using System.Threading;
-using System.Threading.Tasks;
-using System.Diagnostics;*/
+//using System.Threading;
+//using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ks
 {
@@ -24,8 +24,8 @@ namespace ks
                 ioObject = new FormattedIO488();
                 try
                 {
-                    ioObject.IO = (IMessage)resourceManager.Open(address, AccessMode.NO_LOCK, 0, "");
-                    Thread.Sleep(20);
+                    ioObject.IO = (IMessage)resourceManager.Open(address, AccessMode.NO_LOCK, 2000, "");
+                    //Thread.Sleep(20);
                     ioObject.WriteString(data: command, flushAndEND: true);
 
                     return true;
@@ -55,8 +55,8 @@ namespace ks
 
                 try
                 {
-                    ioObject.IO = (IMessage)resourceManager.Open(address, AccessMode.NO_LOCK, 0, "");
-                    Thread.Sleep(20);
+                    ioObject.IO = (IMessage)resourceManager.Open(address, AccessMode.NO_LOCK, 2000, "");
+                    //Thread.Sleep(20);
                     valueRead = ioObject.ReadString();
 
                     return true;
@@ -78,8 +78,8 @@ namespace ks
             }
         }
 
-        //bool stop_start_state = false;
-        private void button_start_Click(object sender, EventArgs e)
+        bool stop_start_state = false;
+        private async void button_start_Click(object sender, EventArgs e)
         {
             string source_load_address = textBox_address.Text;
             if (source_load_address == "")
@@ -91,26 +91,32 @@ namespace ks
             //usbSendAndRead.Write(source_load_address, "VOLT 0");
             usbSendAndRead.Write(source_load_address, "OUTP ON");
             label_status.Text = "running";
-            //stop_start_state = true;
-            //string read_current, read_voltage;
-            /*await Task.Delay(1000);
+            stop_start_state = true;
+            string read_current;
+            string read_voltage;
+            await Task.Delay(1000);
 
             while (stop_start_state == true)
             {
-                Debug.Print("start:");
+                //Debug.Print("start:");
 
-                Debug.Print(DateTime.Now.ToString());
-                //usbSendAndRead.Write(source_load_address, "MEAS:CURR?");
-                //await Task.Delay(500);
-                //usbSendAndRead.Read(source_load_address, out read_current);
-                usbSendAndRead.Write(source_load_address, "MEAS: VOLT: ACDC?");
+                //Debug.Print(DateTime.Now.ToString());
+                usbSendAndRead.Write(source_load_address, "MEAS:CURR?");
+                usbSendAndRead.Read(source_load_address, out read_current);
+
+                usbSendAndRead.Write(source_load_address, "MEAS:VOLT:ACDC?");
                 usbSendAndRead.Read(source_load_address, out read_voltage);
-                //label_meas_current.Text = read_current;
-                Debug.Print("end:");
-                label_meas_voltage.Text = read_voltage;
+                //Debug.Print(read_current);
+                //Debug.Print(read_voltage);
+                label_meas_current.Text = float.Parse(read_current, CultureInfo.InvariantCulture).ToString("0.00");
+                label_meas_voltage.Text = float.Parse(read_voltage, CultureInfo.InvariantCulture).ToString("0.00");
 
-                Debug.Print(DateTime.Now.ToString());
-                await Task.Delay(500);
+                //Debug.Print("end:");
+                await Task.Delay(1000);
+
+
+                //Debug.Print(DateTime.Now.ToString());
+                //await Task.Delay(500);
 
                 //Debug.Print("after 1s");
 
@@ -119,7 +125,7 @@ namespace ks
                 //await Task.Delay(1000);
 
             }
-*/
+
 
         }
 
@@ -133,7 +139,7 @@ namespace ks
             }
             usbSendAndRead.Write(source_load_address, "OUTP OFF");
             label_status.Text = "stop";
-            //stop_start_state = false;
+            stop_start_state = false;
 
 
         }
@@ -154,6 +160,7 @@ namespace ks
         {
             string source_load_address = textBox_address.Text;
             string voltage_set = (((float)vScrollBar_voltage.Value) / 10).ToString("0.00");
+            Debug.Print(voltage_set);
             usbSendAndRead.Write(source_load_address, "VOLT " + voltage_set);
             textBox_setup_voltage_value.Text = voltage_set;
         }

@@ -41,11 +41,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox_setup_voltage_value = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label_meas_voltage = new System.Windows.Forms.Label();
+            this.label_meas_current = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(81, 113);
+            this.vScrollBar1.Location = new System.Drawing.Point(501, 130);
             this.vScrollBar1.Maximum = 1000;
             this.vScrollBar1.Name = "vScrollBar1";
             this.vScrollBar1.Size = new System.Drawing.Size(48, 282);
@@ -55,11 +59,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(197, 270);
+            this.label1.Location = new System.Drawing.Point(632, 247);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.Size = new System.Drawing.Size(123, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Output current";
+            this.label1.Text = "current limit (A)";
             // 
             // button_start
             // 
@@ -108,7 +112,7 @@
             // 
             // textBox_setup_current_value
             // 
-            this.textBox_setup_current_value.Location = new System.Drawing.Point(197, 328);
+            this.textBox_setup_current_value.Location = new System.Drawing.Point(632, 296);
             this.textBox_setup_current_value.Name = "textBox_setup_current_value";
             this.textBox_setup_current_value.Size = new System.Drawing.Size(125, 27);
             this.textBox_setup_current_value.TabIndex = 9;
@@ -118,15 +122,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 69);
+            this.label3.Location = new System.Drawing.Point(488, 91);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 20);
+            this.label3.Size = new System.Drawing.Size(123, 20);
             this.label3.TabIndex = 10;
-            this.label3.Text = "current limited";
+            this.label3.Text = "current limit (A)";
             // 
             // vScrollBar_voltage
             // 
-            this.vScrollBar_voltage.Location = new System.Drawing.Point(536, 130);
+            this.vScrollBar_voltage.Location = new System.Drawing.Point(87, 130);
             this.vScrollBar_voltage.Maximum = 1000;
             this.vScrollBar_voltage.Name = "vScrollBar_voltage";
             this.vScrollBar_voltage.Size = new System.Drawing.Size(48, 282);
@@ -136,36 +140,75 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(516, 91);
+            this.label4.Location = new System.Drawing.Point(62, 91);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 20);
+            this.label4.Size = new System.Drawing.Size(124, 20);
             this.label4.TabIndex = 12;
-            this.label4.Text = "voltage limited";
+            this.label4.Text = "voltage limit (V)";
             // 
             // textBox_setup_voltage_value
             // 
-            this.textBox_setup_voltage_value.Location = new System.Drawing.Point(609, 328);
+            this.textBox_setup_voltage_value.Location = new System.Drawing.Point(207, 296);
             this.textBox_setup_voltage_value.Name = "textBox_setup_voltage_value";
             this.textBox_setup_voltage_value.Size = new System.Drawing.Size(125, 27);
             this.textBox_setup_voltage_value.TabIndex = 13;
-            this.textBox_setup_voltage_value.Validated += new System.EventHandler(this.textBox_setup_voltage_value_TextChanged);
             this.textBox_setup_voltage_value.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPressV);
-
+            this.textBox_setup_voltage_value.Validated += new System.EventHandler(this.textBox_setup_voltage_value_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(609, 275);
+            this.label5.Location = new System.Drawing.Point(207, 247);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 20);
+            this.label5.Size = new System.Drawing.Size(124, 20);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Output voltage";
+            this.label5.Text = "voltage limit (V)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(138, 353);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(106, 20);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "meas voltage";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(632, 363);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 20);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "meas current";
+            // 
+            // label_meas_voltage
+            // 
+            this.label_meas_voltage.AutoSize = true;
+            this.label_meas_voltage.Location = new System.Drawing.Point(138, 392);
+            this.label_meas_voltage.Name = "label_meas_voltage";
+            this.label_meas_voltage.Size = new System.Drawing.Size(32, 20);
+            this.label_meas_voltage.TabIndex = 17;
+            this.label_meas_voltage.Text = "NA";
+            // 
+            // label_meas_current
+            // 
+            this.label_meas_current.AutoSize = true;
+            this.label_meas_current.Location = new System.Drawing.Point(626, 401);
+            this.label_meas_current.Name = "label_meas_current";
+            this.label_meas_current.Size = new System.Drawing.Size(32, 20);
+            this.label_meas_current.TabIndex = 18;
+            this.label_meas_current.Text = "NA";
             // 
             // soft_start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label_meas_current);
+            this.Controls.Add(this.label_meas_voltage);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox_setup_voltage_value);
             this.Controls.Add(this.label4);
@@ -200,5 +243,9 @@
         private Label label4;
         private TextBox textBox_setup_voltage_value;
         private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label_meas_voltage;
+        private Label label_meas_current;
     }
 }
