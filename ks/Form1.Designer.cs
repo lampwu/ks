@@ -112,6 +112,7 @@
             this.textBox_setup_current_value.Name = "textBox_setup_current_value";
             this.textBox_setup_current_value.Size = new System.Drawing.Size(125, 27);
             this.textBox_setup_current_value.TabIndex = 9;
+            this.textBox_setup_current_value.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPressC);
             this.textBox_setup_current_value.Validated += new System.EventHandler(this.textBox_setup_current_value_TextChanged);
             // 
             // label3
@@ -148,6 +149,8 @@
             this.textBox_setup_voltage_value.Size = new System.Drawing.Size(125, 27);
             this.textBox_setup_voltage_value.TabIndex = 13;
             this.textBox_setup_voltage_value.Validated += new System.EventHandler(this.textBox_setup_voltage_value_TextChanged);
+            this.textBox_setup_voltage_value.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPressV);
+
             // 
             // label5
             // 

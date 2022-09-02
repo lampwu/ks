@@ -87,8 +87,8 @@ namespace ks
                 MessageBox.Show("address error", "Message");
                 return;
             }
-            usbSendAndRead.Write(source_load_address, "CURR:LIM 0");
-            usbSendAndRead.Write(source_load_address, "VOLT 0");
+            //usbSendAndRead.Write(source_load_address, "CURR:LIM 0");
+            //usbSendAndRead.Write(source_load_address, "VOLT 0");
             usbSendAndRead.Write(source_load_address, "OUTP ON");
             label_status.Text = "running";
             //stop_start_state = true;
@@ -179,6 +179,34 @@ namespace ks
 
             vScrollBar_voltage.Value = (int)(number * 10);
 
+        }
+        private void CheckEnterKeyPressV(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+
+            {
+                float number;
+                if (textBox_setup_voltage_value.Text == "") { return; }
+                number = float.Parse(textBox_setup_voltage_value.Text, CultureInfo.InvariantCulture);
+
+                vScrollBar_voltage.Value = (int)(number * 10);
+                // Then Do your Thang
+            }
+        }
+
+        private void CheckEnterKeyPressC(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+
+            {
+                float number;
+                if (textBox_setup_current_value.Text == "") { return; }
+                //string source_load_address = textBox_address.Text;
+                //usbSendAndRead.Write(source_load_address, "CURR:LIM " + textBox_setup_current_value.Text.ToString());
+                number = float.Parse(textBox_setup_current_value.Text, CultureInfo.InvariantCulture);
+                vScrollBar1.Value = (int)(number * 10);
+                // Then Do your Thang
+            }
         }
     }
 }
